@@ -4,6 +4,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -16,9 +17,11 @@ public class web2 {
     WebDriver wd;
     @Test
     public void searchWebdriverTest(){
-        //WebDriverManager.firefoxdriver().setup();
+       // WebDriverManager.firefoxdriver().setup();
+       // WebDriverManager.edgedriver().setup();
         wd = new ChromeDriver();
-       //wd = new FirefoxDriver();
+       // wd = new InternetExplorerDriver();
+        // wd = new FirefoxDriver();
         wd.manage().window().maximize();
         wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         wd.navigate().to("https://www.google.com");
@@ -28,5 +31,6 @@ public class web2 {
         wd.findElement(By.cssSelector("#password")).sendKeys("secret_sauce");
         wd.findElement(By.name("login-button")).click();
         System.out.println(wd.findElements(By.className("inventory_item")).size());
+
     }
 }
